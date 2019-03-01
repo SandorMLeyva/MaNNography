@@ -27,7 +27,7 @@ class ResizeImg:
 
     def crop(self, h_offset = 0, w_offset = 500):
         # TODO: tener en cuenta que si es izquierda o derecha hay q ver de donde se recorta
-        self.crop_img = self.image[0:self.h, 500:self.w]
+        self.crop_img = self.image[h_offset:self.h, w_offset:self.w]
         a = "CROP: --> from: %s X %s  to %s X %s"%(self.h,self.w,len(self.crop_img),len(self.crop_img[1]))
         print(a)
 
@@ -57,8 +57,16 @@ class ResizeImg:
     # In[126]:
 
 
-    def resize(self, path):
+    def resize(self, path, position = 0):
+        '''
+        position: 
+            0 rigth
+            1 left
+        '''
         self.load(path)
-        self.crop()
+        if position == 1:
+            self.crop(h_offset= 500, w_offset= 0)
+        else:    
+            self.crop()
         self.scale()
         return self.crop_img

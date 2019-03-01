@@ -26,10 +26,10 @@ def clasificate_file(path: str, folder):
             img = resize_img.resize(path)
             db.insert(img,1, folder)
         if path.count('LEFT_MLO') == 1:
-            img = resize_img.resize(path)
+            img = resize_img.resize(path, position=1)
             db.insert(img,2, folder)
         if path.count('LEFT_CC') == 1:
-            img = resize_img.resize(path)
+            img = resize_img.resize(path, position=1)
             db.insert(img,3, folder)
 
 
