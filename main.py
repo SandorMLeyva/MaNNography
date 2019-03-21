@@ -3,10 +3,18 @@
 
 import mannography as mnn
 import fire
+import sys
 
 def main():
     builder = mnn.Builder()
     fire.Fire(builder.find_file)
 
+def nofire(path):
+    builder = mnn.Builder()
+    builder.find_file(path)
+
 if __name__ == "__main__":
-    main()
+    if "--nofire" in sys.argv:
+        nofire(sys.argv[2])
+    else:
+        main()
