@@ -2,7 +2,6 @@
 # coding: utf-8
 
 import mannography as mnn
-import fire
 import sys
 
 def main():
@@ -17,4 +16,5 @@ if __name__ == "__main__":
     if "--nofire" in sys.argv:
         nofire(sys.argv[2])
     else:
+        import fire
         main()
