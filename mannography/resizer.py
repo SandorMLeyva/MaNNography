@@ -25,7 +25,7 @@ class ResizeImg:
         print(a)
 
     def save_img(self, path):
-        cv2.imwrite(path, self.crop_img)
+        cv2.imwrite(path+'.png', self.crop_img)
 
     @property
     def get_np_array(self):

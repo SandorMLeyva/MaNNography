@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from .orm import Context
+from .orm.csv import ContextCSV
 from .resizer import ResizeImg
 import numpy as np
 import sys
@@ -13,7 +13,8 @@ class Builder:
         self.path = 'mamografias'
         self.clasifications = ['normals', 'benign_without_callbacks', 'cancers', 'benigns']
         self.resizer = ResizeImg()
-        self.context = Context()
+        # en context cambiar si se quiere hacer con db o csv
+        self.context = ContextCSV()
 
 
     def classificate_file(self, path: str, folder):
